@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+
+# Eclipse project files (optional to ignore)
+.project
+.classpath
+.settings/
+bin/
+
+# Eclipse-specific
+.metadata/
+*.launch
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / config
+config.properties
+.env
