@@ -3,18 +3,22 @@
  */
 package org.example;
 import java.io.IOException;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
+    private static final Logger LOGGER = LogManager.getLogger("app.class");
     public static void main(String[] args) throws InvalidFormatException, IOException {
         System.out.println("Excel Summarize starting...");
+        LOGGER.info("Program started");
+        if (args.length < 0) { LOGGER.warn("File not found");
+        	throw new InvalidFormatException("File not found");
+        	
+        }
         String path = args[0];
+        
     	ExcelReader reader = new ExcelReader(path);
         String content = reader.getFileContent();
         
