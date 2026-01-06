@@ -19,4 +19,6 @@ Thumbs.db
 
 # Secrets / config
 config.properties
+
 .env
+logs/
