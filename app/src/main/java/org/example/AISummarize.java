@@ -23,7 +23,7 @@ public class AISummarize {
 	public String callSummarize(String text) {
 		var chatRequest = ChatRequest.builder()
 				.model("gpt-4o-mini")
-				.message(SystemMessage.of("You are an expert in data analysis. Please use this information make a summary of any trends or important takeaways" ))
+				.message(SystemMessage.of("You are an expert in data analysis. " ))
 				.message(UserMessage.of(text))
 				.temperature(0.0)
 				.maxCompletionTokens(500)

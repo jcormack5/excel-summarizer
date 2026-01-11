@@ -9,7 +9,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 
 public class App {
-    private static final Logger LOGGER = LogManager.getLogger("app.class");
+    private static final Logger LOGGER = LogManager.getLogger("App.class");
     public static void main(String[] args) throws InvalidFormatException, IOException {
         System.out.println("Excel Summarize starting...");
         LOGGER.info("Program started");
@@ -19,8 +19,15 @@ public class App {
         }
         String path = args[0];
         //Git test
+        
+        PromptBuilder prompt = new PromptBuilder();
+        prompt.task("Look for anomolies");
+        prompt.format("Bullet list");
+        
     	ExcelReader reader = new ExcelReader(path);
         String content = reader.getFileContent();
+        content += prompt.getPrompt();
+        
         
         AISummarize summarizer = new AISummarize();
         String summary = summarizer.callSummarize(content);
